@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".TrackerActivity">
+    tools:context=".AchievementsActivity">
+
 
     <TextView
-        android:id="@+id/trackerTitleTV"
+        android:id="@+id/achievementsTitleTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Goal Progress Tracker"
+        android:text="Achievements"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,14 +23,13 @@
         android:gravity="center"
         android:layout_marginTop="24dp" />
 
-    <!-- Example Goal Card -->
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/exampleGoalCard"
+        android:id="@+id/exampleAchievementCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/trackerTitleTV"
+        app:layout_constraintTop_toBottomOf="@+id/achievementsTitleTV"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:cardElevation="4dp"
@@ -41,49 +42,33 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/goalNameTV"
+                android:id="@+id/achievementNameTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Exercise Daily"
+                android:text="🏆 First 7-Day Streak!"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/streakTV"
+                android:id="@+id/achievementDescTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🔥 5 Day Streak"
+                android:text="Completed your first full week of progress!"
                 android:textSize="16sp"
                 android:paddingTop="4dp" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:progress="60"
-                android:max="100"
-                android:progressTint="#4CAF50"
-                android:layout_marginTop="8dp" />
-
-            <Button
-                android:id="@+id/updateProgressBTN"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Update Progress"
-                android:layout_marginTop="8dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/addGoalBTN"
-        android:layout_width="180dp"
+    <TextView
+        android:id="@+id/moreAchievementsTV"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add New Goal"
-        app:layout_constraintTop_toBottomOf="@+id/exampleGoalCard"
+        android:text="(More achievements coming soon...)"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/exampleAchievementCard"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/backBTN"
