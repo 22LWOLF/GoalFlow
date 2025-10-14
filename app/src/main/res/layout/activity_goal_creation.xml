@@ -9,61 +9,99 @@
 
     <Button
         android:id="@+id/submitBTN"
-        android:layout_width="192dp"
-        android:layout_height="67dp"
+        android:layout_width="230dp"
+        android:layout_height="100dp"
         android:text="Create Goal"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="578dp" />
-
-    <EditText
-        android:id="@+id/amountOfTimeET"
-        android:layout_width="114dp"
-        android:layout_height="58dp"
-        android:hint="Time Period"
-        android:text=""
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="123dp" />
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.629" />
 
     <EditText
         android:id="@+id/notificationTimeET"
-        android:layout_width="197dp"
-        android:layout_height="71dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
         android:hint="Enter Notification Time"
-        android:inputType="time"
         android:text=""
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="289dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/goalNameET"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/goalNameET"
+        app:layout_constraintTop_toBottomOf="@+id/notificationFrequencyTV"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/goalNameET"
-        android:layout_width="302dp"
-        android:layout_height="68dp"
-        android:hint="Enter a Goal Name"
+        android:id="@+id/amountOfTimeET"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:hint="Time Period"
+        android:inputType="number"
         android:text=""
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="32dp" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/goalNameET"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/goalNameET"
+        app:layout_constraintTop_toBottomOf="@+id/goalNameET"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/timeUnitSpinner"
-        android:layout_width="116dp"
-        android:layout_height="56dp"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="123dp" />
-
-    <Spinner
-        android:id="@+id/notificationFrequencySpinner"
-        android:layout_width="116dp"
-        android:layout_height="35dp"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/notificationFrequencyTV"
-        tools:layout_editor_absoluteY="208dp" />
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/amountOfTimeET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/amountOfTimeET"
+        app:layout_constraintTop_toTopOf="@+id/amountOfTimeET"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/notificationFrequencyTV"
         android:layout_width="190dp"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center|center_vertical"
         android:text="Notification Frequency:"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="208dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/goalNameET"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/goalNameET"
+        app:layout_constraintTop_toBottomOf="@+id/amountOfTimeET"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/notificationFrequencySpinner"
+        android:layout_width="116dp"
+        android:layout_height="40dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/notificationFrequencyTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/notificationFrequencyTV"
+        app:layout_constraintTop_toTopOf="@+id/notificationFrequencyTV"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/goalNameET"
+        android:layout_width="370dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:hint="Enter a Goal Name"
+        android:text=""
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.153" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
