@@ -8,35 +8,62 @@
     tools:context=".GoalCreationActivity">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:id="@+id/submitBTN"
+        android:layout_width="192dp"
+        android:layout_height="67dp"
+        android:text="Create Goal"
         tools:layout_editor_absoluteX="60dp"
         tools:layout_editor_absoluteY="578dp" />
 
     <EditText
-        android:id="@+id/textView"
-        android:layout_width="134dp"
-        android:layout_height="64dp"
+        android:id="@+id/amountOfTimeET"
+        android:layout_width="114dp"
+        android:layout_height="58dp"
         android:hint="Time Period"
         android:text=""
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="138dp" />
+        tools:layout_editor_absoluteY="123dp" />
 
     <EditText
-        android:id="@+id/textView2"
+        android:id="@+id/notificationTimeET"
+        android:layout_width="197dp"
+        android:layout_height="71dp"
+        android:hint="Enter Notification Time"
+        android:inputType="time"
+        android:text=""
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="289dp" />
+
+    <EditText
+        android:id="@+id/goalNameET"
         android:layout_width="302dp"
         android:layout_height="68dp"
-        android:hint="Goal Name"
+        android:hint="Enter a Goal Name"
         android:text=""
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="32dp" />
 
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="122dp" />
+        android:id="@+id/timeUnitSpinner"
+        android:layout_width="116dp"
+        android:layout_height="56dp"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="123dp" />
+
+    <Spinner
+        android:id="@+id/notificationFrequencySpinner"
+        android:layout_width="116dp"
+        android:layout_height="35dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/notificationFrequencyTV"
+        tools:layout_editor_absoluteY="208dp" />
+
+    <TextView
+        android:id="@+id/notificationFrequencyTV"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:text="Notification Frequency:"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="208dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
