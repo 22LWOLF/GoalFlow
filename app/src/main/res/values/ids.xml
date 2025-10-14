@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="trackerTitleTV" type="id">trackerTitleTv</item>
+    <item name="backBTN" type="id">backBTN</item>
+    <item name="exampleGoalCard" type="id">exampleGoalCard</item>
+    <item name="addGoalBTN" type="id">addGoalBTN</item>
+    <item name="updateProgressBTN" type="id">updateProgressBTN</item>
+    <item name="progressBar" type="id">progressBar</item>
+    <item name="streakTV" type="id">streakTV</item>
+    <item name="goalNameTV" type="id">goalNameTV</item>
+</resources>
