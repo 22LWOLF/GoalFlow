@@ -66,74 +66,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.396" />
 
-    <LinearLayout
-        android:layout_width="355dp"
-        android:layout_height="297dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.735">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:autoSizeTextType="none"
-            android:text="(Upcoming Goal)"
-            android:textAlignment="inherit" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:autoSizeTextType="none"
-            android:text="(Upcoming Goal)"
-            android:textAlignment="inherit" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:autoSizeTextType="none"
-            android:text="(Upcoming Goal)"
-            android:textAlignment="inherit" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:autoSizeTextType="none"
-            android:text="(Upcoming Goal)"
-            android:textAlignment="inherit" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:autoSizeTextType="none"
-            android:text="(Upcoming Goal)"
-            android:textAlignment="inherit" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:autoSizeTextType="none"
-            android:text="(Upcoming Goal)"
-            android:textAlignment="inherit" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:autoSizeTextType="none"
-            android:text="(Upcoming Goal)"
-            android:textAlignment="inherit" />
-    </LinearLayout>
-
     <ImageButton
         android:id="@+id/settingsBTN"
         android:layout_width="80dp"
@@ -167,5 +99,15 @@
         app:layout_constraintEnd_toStartOf="@+id/settingsBTN"
         app:srcCompat="@android:drawable/checkbox_on_background"
         tools:layout_editor_absoluteY="635dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/achievementRV"
+        android:layout_width="409dp"
+        android:layout_height="324dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.759" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
