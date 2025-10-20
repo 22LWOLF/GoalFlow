@@ -147,12 +147,12 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         app:layout_constraintEnd_toStartOf="@+id/trackerBTN"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6"
+        app:layout_constraintStart_toEndOf="@+id/achievementsBTN"
         app:srcCompat="@android:drawable/ic_menu_agenda"
         tools:layout_editor_absoluteY="635dp" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/achievementsBTN"
         android:layout_width="80dp"
         android:layout_height="80dp"
         app:srcCompat="@android:drawable/btn_star_big_off"
