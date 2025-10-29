@@ -1,6 +1,9 @@
 package com.example.goalflow;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,16 @@ public class GoalCreationActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        EditText goalNameET = findViewById(R.id.goalNameET);
+        EditText amountOfTimeET = findViewById(R.id.amountOfTimeET);
+        Spinner timeUnitSpinner = findViewById(R.id.timeUnitSpinner);
+        Spinner notificationFrequencySpinner = findViewById(R.id.notificationFrequencySpinner);
+        EditText notificationTimeET = findViewById(R.id.notificationTimeET);
+        Button submitBTN = findViewById(R.id.submitBTN);
+
+
+
+
     }
 }
