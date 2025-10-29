@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,6 +48,22 @@ public class GoalCreationActivity extends AppCompatActivity {
         );
         freqAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         notificationFrequencySpinner.setAdapter(freqAdapter);
+
+        submitBTN.setOnClickListener(v -> {
+            String goalName = goalNameET.getText().toString().trim();
+            String amount = amountOfTimeET.getText().toString().trim();
+            String timeUnit = timeUnitSpinner.getSelectedItem().toString();
+            String frequency = notificationFrequencySpinner.getSelectedItem().toString();
+            String notifyTime = notificationTimeET.getText().toString().trim();
+
+            if (goalName.isEmpty() || amount.isEmpty() || notifyTime.isEmpty()) {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String fakeResult = "Goal: " + goalName + "\nEvery " + amount + " " + timeUnit + "\nNotify: " + frequency + " at " + notifyTime;
+            Toast.makeText(this, "Goal Created!\n" + fakeResult, Toast.LENGTH_LONG).show();
+
+        });
     }
 
 }
