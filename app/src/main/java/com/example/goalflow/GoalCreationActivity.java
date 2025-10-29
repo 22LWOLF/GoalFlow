@@ -64,6 +64,14 @@ public class GoalCreationActivity extends AppCompatActivity {
             Toast.makeText(this, "Goal Created!\n" + fakeResult, Toast.LENGTH_LONG).show();
 
         });
+
+
     }
+    private boolean saveGoal(String name, String amount, String unit, String frequency, String notifyTime) {
+        // This would normally talk to a database or API
+        // For now, it just pretends to succeed
+        return true;
+    }
+
 
 }
