@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Goal Flow</string>
+
+    <string-array name="time_units">
+        <item>Minutes</item>
+        <item>Hours</item>
+        <item>Days</item>
+    </string-array>
+
+    <string-array name="notification_frequencies">
+        <item>Once</item>
+        <item>Daily</item>
+        <item>Weekly</item>
+    </string-array>
+
 </resources>

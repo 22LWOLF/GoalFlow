@@ -1,6 +1,7 @@
 package com.example.goalflow;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -31,8 +32,21 @@ public class GoalCreationActivity extends AppCompatActivity {
         EditText notificationTimeET = findViewById(R.id.notificationTimeET);
         Button submitBTN = findViewById(R.id.submitBTN);
 
+        ArrayAdapter<CharSequence> timeUnitAdapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.time_units,
+                android.R.layout.simple_spinner_item
+        );
+        timeUnitAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        timeUnitSpinner.setAdapter(timeUnitAdapter);
 
-
-
+        ArrayAdapter<CharSequence> freqAdapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.notification_frequencies,
+                android.R.layout.simple_spinner_item
+        );
+        freqAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        notificationFrequencySpinner.setAdapter(freqAdapter);
     }
+
 }
