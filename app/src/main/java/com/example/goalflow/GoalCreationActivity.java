@@ -62,7 +62,7 @@ public class GoalCreationActivity extends AppCompatActivity {
             }
             String fakeResult = "Goal: " + goalName + "\nEvery " + amount + " " + timeUnit + "\nNotify: " + frequency + " at " + notifyTime;
             Toast.makeText(this, "Goal Created!\n" + fakeResult, Toast.LENGTH_LONG).show();
-
+ 
         });
 
 
