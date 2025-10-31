@@ -86,3 +86,6 @@ Users will be able to create and track:
 - Community features: blog and challenges require more advanced handling.
 # Requires functionality we will talk about later
 - Later topics: push notifications, media handling, advanced DB services.
+
+## Plan:
+The Goal Flow app will store user profile information, goals, and app settings to improve personalization and progress tracking. Planned data includes a user’s name, email, goal details (title, description, dates, and progress), and preferences such as notifications and reminders. For now, these values are handled with temporary placeholders for testing, but future milestones will implement local storage
