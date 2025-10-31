@@ -48,15 +48,16 @@ private ArrayList<String> data = null;
 
 //Changes the image every now and then
         welcomeImage = findViewById(R.id.welcomeImage);
+        welcomeImage.setImageResource(images[currentIndex]);
         runnable = new Runnable(){
             public void run() {
                 currentIndex = (currentIndex + 1) % images.length;
                 welcomeImage.setImageResource(images[currentIndex]);
-                handler.postDelayed(this, 100000);
+                handler.postDelayed(this, 8000);
 
             }
         };
-        handler.postDelayed(runnable, 100000);
+        handler.postDelayed(runnable, 8000);
 
         achievementsBTN.setOnClickListener(new View.OnClickListener() {
             @Override

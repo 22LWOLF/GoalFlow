@@ -29,8 +29,7 @@ public class ReminderModel {
         }
     }
     private ReminderModel(){
-        remModel = new ArrayList<Reminder>();
-        loadReminderModel();
+
     }
 
 
