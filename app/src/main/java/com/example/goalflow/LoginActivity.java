@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-//import com.example.goalflow.DashboardActivity;
+import com.example.goalflow.DashboardActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             } else if (user.equals("admin") && pass.equals("1234")) {
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
 
-                //startActivity(new Intent(this, DashboardActivity.class));
+                startActivity(new Intent(this, DashboardActivity.class));
             } else {
                 Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show();
             }
