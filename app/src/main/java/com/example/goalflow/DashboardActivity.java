@@ -14,18 +14,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class DashboardActivity extends AppCompatActivity {
 
 
-
+private ArrayList<String> data = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dashboard);
+
+        data = new ArrayList<String>(); data.add("Reminder");
 
         ImageButton achievementsBTN = findViewById(R.id.achievementsBTN);
         ImageButton settingsBTN = findViewById(R.id.settingsBTN);
@@ -73,6 +76,8 @@ public class DashboardActivity extends AppCompatActivity {
         });
 
 
-
+    RecyclerAdapter reminderServer = new RecyclerAdapter(data);
+        RecyclerView remindersRV = findViewById(R.id.remindersRV);
+        remindersRV.setAdapter(reminderServer);
     }
 }
