@@ -87,5 +87,10 @@ Users will be able to create and track:
 # Requires functionality we will talk about later
 - Later topics: push notifications, media handling, advanced DB services.
 
-## Plan:
-The Goal Flow app will store user profile information, goals, and app settings to improve personalization and progress tracking. Planned data includes a user’s name, email, goal details (title, description, dates, and progress), and preferences such as notifications and reminders. For now, these values are handled with temporary placeholders for testing, but future milestones will implement local storage
+## Plan for persistent data:
+# Data
+The data that will eventually need to be stored in the app includes information about users, their goals, and their app settings. For each user the app will store their username, password, and email address to identify and allow the user to login. The app will also store what the user’s goals are, their goal streaks, and the progress to see how close they are to their goal. The app will also try and store personal settings like notifications on or off. Every goal will have some sort of id number and the same for the user. 
+
+# Persistence Plan
+In future milestones the app will include true persistent storage with either a local or remote option. If a local storage is used, the app would have to implement some sort of SQL-based database that is stored on the device. If a remote storage is used, Firebase Realtime Database could be used to sync data across all the user’s devices. The final decision will depend on the complexity of the options and the remaining work needed to the project. Functions that store hard coded values will be replaced with some sort of database. 
+
