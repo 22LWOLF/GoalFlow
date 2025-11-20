@@ -1,5 +1,6 @@
 package com.example.goalflow;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -32,6 +33,7 @@ public class GoalCreationActivity extends AppCompatActivity {
         Spinner notificationFrequencySpinner = findViewById(R.id.notificationFrequencySpinner);
         EditText notificationTimeET = findViewById(R.id.notificationTimeET);
         Button submitBTN = findViewById(R.id.submitBTN);
+        Button saveExitBTN = findViewById(R.id.saveExitBTN);
 
         ArrayAdapter<CharSequence> timeUnitAdapter = ArrayAdapter.createFromResource(
                 this,
@@ -62,9 +64,13 @@ public class GoalCreationActivity extends AppCompatActivity {
             }
             String fakeResult = "Goal: " + goalName + "\nEvery " + amount + " " + timeUnit + "\nNotify: " + frequency + " at " + notifyTime;
             Toast.makeText(this, "Goal Created!\n" + fakeResult, Toast.LENGTH_LONG).show();
+
+
  
         });
-
+        saveExitBTN.setOnClickListener( v -> {
+            startActivity(new Intent(this, DashboardActivity.class));
+        });
 
     }
     private boolean saveGoal(String name, String amount, String unit, String frequency, String notifyTime) {

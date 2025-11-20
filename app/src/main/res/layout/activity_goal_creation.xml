@@ -20,6 +20,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.629" />
 
+
+
     <EditText
         android:id="@+id/notificationTimeET"
         android:layout_width="200dp"
@@ -103,5 +105,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.153" />
+
+    <Button
+        android:id="@+id/saveExitBTN"
+        android:layout_width="269dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="116dp"
+        android:text="Save and Exit"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/submitBTN"
+        app:layout_constraintVertical_bias="0.066" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
