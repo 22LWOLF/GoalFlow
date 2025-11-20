@@ -37,6 +37,18 @@ private ArrayList<String> data = null;
 
         //for the recyler view
         data = new ArrayList<String>(); data.add("Reminder");
+        // Load saved goals from SharedPreferences
+        ArrayList<Goal> savedGoals = GoalStorage.loadGoals(this);
+
+        // Convert goals into display strings
+            for (Goal g : savedGoals) {
+                String text = "Goal: " + g.name +
+                    " — Every " + g.amount + " " + g.unit +
+                    " — Notify: " + g.frequency + " at " + g.notifyTime;
+
+                data.add(text);
+        }
+
 
         ImageButton achievementsBTN = findViewById(R.id.achievementsBTN);
         ImageButton settingsBTN = findViewById(R.id.settingsBTN);
