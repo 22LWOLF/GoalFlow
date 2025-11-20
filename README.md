@@ -42,6 +42,7 @@ Users will be able to create and track:
 ## Rough Sketches of Activities
 - Login Screen
 - Username and Password fields
+  * currently admin 1234
 - Login button -> Dashboard
 
 ## Dashboard
