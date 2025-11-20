@@ -83,19 +83,20 @@ public class GoalCreationActivity extends AppCompatActivity {
             String notifyTime = notificationTimeET.getText().toString().trim();
 
             if (goalName.isEmpty() || amount.isEmpty() || notifyTime.isEmpty()) {
-                Toast.makeText(this, "Please complete all fields before saving.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please complete all fields.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // Build a simple display string for the RecyclerView
-            String goalDisplay =
-                    goalName + " — " + amount + " " + timeUnit +
-                            " — " + frequency + " @ " + notifyTime;
+            Goal goal = new Goal(goalName, amount, timeUnit, frequency, notifyTime);
 
-            Intent intent = new Intent(GoalCreationActivity.this, DashboardActivity.class);
-            intent.putExtra("goalDisplay", goalDisplay);
-            startActivity(intent);
-            finish(); // Prevent back button from returning here
+            // Save permanently
+            GoalStorage.saveGoal(this, goal);
+
+            Toast.makeText(this, "Goal Saved!", Toast.LENGTH_SHORT).show();
+
+            startActivity(new Intent(this, DashboardActivity.class));
+            finish();
         });
+
     }
 }
