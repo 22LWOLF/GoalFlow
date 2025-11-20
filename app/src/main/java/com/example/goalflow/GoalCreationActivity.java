@@ -21,12 +21,14 @@ public class GoalCreationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_goal_creation);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
+        // UI References
         EditText goalNameET = findViewById(R.id.goalNameET);
         EditText amountOfTimeET = findViewById(R.id.amountOfTimeET);
         Spinner timeUnitSpinner = findViewById(R.id.timeUnitSpinner);
@@ -35,6 +37,7 @@ public class GoalCreationActivity extends AppCompatActivity {
         Button submitBTN = findViewById(R.id.submitBTN);
         Button saveExitBTN = findViewById(R.id.saveExitBTN);
 
+        // Dropdown adapters
         ArrayAdapter<CharSequence> timeUnitAdapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.time_units,
@@ -51,6 +54,7 @@ public class GoalCreationActivity extends AppCompatActivity {
         freqAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         notificationFrequencySpinner.setAdapter(freqAdapter);
 
+        // --- SUBMIT button: show preview toast only ---
         submitBTN.setOnClickListener(v -> {
             String goalName = goalNameET.getText().toString().trim();
             String amount = amountOfTimeET.getText().toString().trim();
@@ -62,22 +66,36 @@ public class GoalCreationActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
-            String fakeResult = "Goal: " + goalName + "\nEvery " + amount + " " + timeUnit + "\nNotify: " + frequency + " at " + notifyTime;
-            Toast.makeText(this, "Goal Created!\n" + fakeResult, Toast.LENGTH_LONG).show();
 
+            String preview = "Goal: " + goalName +
+                    "\nEvery " + amount + " " + timeUnit +
+                    "\nNotify: " + frequency + " at " + notifyTime;
 
- 
-        });
-        saveExitBTN.setOnClickListener( v -> {
-            startActivity(new Intent(this, DashboardActivity.class));
+            Toast.makeText(this, "Goal Created!\n" + preview, Toast.LENGTH_LONG).show();
         });
 
-    }
-    private boolean saveGoal(String name, String amount, String unit, String frequency, String notifyTime) {
-        // This would normally talk to a database or API
-        // For now, it just pretends to succeed
-        return true;
-    }
+        // --- SAVE & EXIT button: send data to DashboardActivity ---
+        saveExitBTN.setOnClickListener(v -> {
+            String goalName = goalNameET.getText().toString().trim();
+            String amount = amountOfTimeET.getText().toString().trim();
+            String timeUnit = timeUnitSpinner.getSelectedItem().toString();
+            String frequency = notificationFrequencySpinner.getSelectedItem().toString();
+            String notifyTime = notificationTimeET.getText().toString().trim();
 
+            if (goalName.isEmpty() || amount.isEmpty() || notifyTime.isEmpty()) {
+                Toast.makeText(this, "Please complete all fields before saving.", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
+            // Build a simple display string for the RecyclerView
+            String goalDisplay =
+                    goalName + " — " + amount + " " + timeUnit +
+                            " — " + frequency + " @ " + notifyTime;
+
+            Intent intent = new Intent(GoalCreationActivity.this, DashboardActivity.class);
+            intent.putExtra("goalDisplay", goalDisplay);
+            startActivity(intent);
+            finish(); // Prevent back button from returning here
+        });
+    }
 }
