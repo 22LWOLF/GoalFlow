@@ -2,18 +2,12 @@ package com.example.goalflow;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import android.content.Intent;
-import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -33,14 +27,20 @@ public class SettingsActivity extends AppCompatActivity {
         reminderSwitch = findViewById(R.id.reminderSwitch);
         backBtn = findViewById(R.id.backBtn);
 
+        nameET.setText(SettingsStorage.loadName(this));
+        emailET.setText(SettingsStorage.loadEmail(this));
+        notificationSwitch.setChecked(SettingsStorage.loadNotifications(this));
+        reminderSwitch.setChecked(SettingsStorage.loadReminders(this));
+
+
         notificationSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            String msg = isChecked ? "Notifications enabled" : "Notifications Disabled";
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+            SettingsStorage.saveNotifications(this, isChecked);
+            Toast.makeText(this, isChecked ? "Notifications enabled" : "Notifications disabled", Toast.LENGTH_SHORT).show();
         });
 
         reminderSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            String msg = isChecked ? "Daily reminders enabled" : "Daily reminders disabled";
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+            SettingsStorage.saveReminders(this, isChecked);
+            Toast.makeText(this, isChecked ? "Daily reminders enabled" : "Daily reminders disabled", Toast.LENGTH_SHORT).show();
         });
 
         backBtn.setOnClickListener(v -> {
@@ -50,8 +50,11 @@ public class SettingsActivity extends AppCompatActivity {
             if (name.isEmpty() || email.isEmpty()) {
                 Toast.makeText(this, "Please fill out name and email", Toast.LENGTH_SHORT).show();
             } else {
+                SettingsStorage.saveName(this, name);
+                SettingsStorage.saveEmail(this, email);
                 Toast.makeText(this, "Settings saved successfully!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, DashboardActivity.class));
+
+                finish();
             }
         });
     }

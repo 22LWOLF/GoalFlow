@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         passwordET = findViewById(R.id.passwordET);
         loginBtn   = findViewById(R.id.loginBtn);
 
+        usernameET.setText(SettingsStorage.loadUsername(this));
+
 
         loginBtn.setOnClickListener(v -> {
             String user = usernameET.getText().toString().trim();
@@ -41,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             if (user.isEmpty() || pass.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             } else if (user.equals("admin") && pass.equals("1234")) {
+                SettingsStorage.saveUsername(this, user);
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
 
                 startActivity(new Intent(this, DashboardActivity.class));
