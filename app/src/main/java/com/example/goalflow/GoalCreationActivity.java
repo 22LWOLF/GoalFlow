@@ -36,6 +36,7 @@ public class GoalCreationActivity extends AppCompatActivity {
         EditText notificationTimeET = findViewById(R.id.notificationTimeET);
         Button submitBTN = findViewById(R.id.submitBTN);
         Button saveExitBTN = findViewById(R.id.saveExitBTN);
+        Button backBTN = findViewById(R.id.backBTN);
 
         // Dropdown adapters
         ArrayAdapter<CharSequence> timeUnitAdapter = ArrayAdapter.createFromResource(
@@ -96,6 +97,10 @@ public class GoalCreationActivity extends AppCompatActivity {
 
             startActivity(new Intent(this, DashboardActivity.class));
             finish();
+        });
+
+        backBTN.setOnClickListener(v -> {
+            startActivity(new Intent(this, DashboardActivity.class));
         });
 
     }
