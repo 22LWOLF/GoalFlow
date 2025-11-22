@@ -14,7 +14,7 @@ public class RecyclerAdapter extends
     RecyclerView.Adapter<RecyclerAdapter.ReminderViewHolder> {
 
 
-    private ArrayList<Goal> goals;
+    private final ArrayList<Goal> goals;
 
     public RecyclerAdapter(ArrayList<Goal> goals) {
         this.goals = goals;
