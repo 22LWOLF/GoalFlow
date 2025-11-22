@@ -19,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -28,40 +29,35 @@ public class DashboardActivity extends AppCompatActivity {
     Handler handler = new Handler();
     Runnable runnable;
 
-private ArrayList<String> data = null;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dashboard);
 
-        //for the recyler view
-        data = new ArrayList<String>(); data.add("Reminder");
-        // Load saved goals from SharedPreferences
         ArrayList<Goal> savedGoals = GoalStorage.loadGoals(this);
 
-        // Convert goals into display strings
-            for (Goal g : savedGoals) {
-                String text = "Goal: " + g.name +
-                    " — Every " + g.amount + " " + g.unit +
-                    " — Notify: " + g.frequency + " at " + g.notifyTime;
 
-                data.add(text);
-        }
+//part of the recyler view
+        RecyclerAdapter reminderServer = new RecyclerAdapter(savedGoals);
+        RecyclerView remindersRV = findViewById(R.id.remindersRV);
+        remindersRV.setAdapter(reminderServer);
+        remindersRV.setLayoutManager(new LinearLayoutManager(this));
 
-
+        //Buttons
         ImageButton achievementsBTN = findViewById(R.id.achievementsBTN);
         ImageButton settingsBTN = findViewById(R.id.settingsBTN);
         ImageButton goalCreateBTN = findViewById(R.id.goalCreateBTN);
         ImageButton trackerBTN = findViewById(R.id.trackerBTN);
         ImageView welcomeImage;
         TextView welcomeTV;
-        TextClock timeView;
 
 //Changes the image every now and then
         welcomeImage = findViewById(R.id.welcomeImage);
         welcomeImage.setImageResource(images[currentIndex]);
-        runnable = new Runnable(){
+        runnable = new Runnable() {
             public void run() {
                 currentIndex = (currentIndex + 1) % images.length;
                 welcomeImage.setImageResource(images[currentIndex]);
@@ -108,10 +104,6 @@ private ArrayList<String> data = null;
 
         });
 
-//part of the recyler view
-    RecyclerAdapter reminderServer = new RecyclerAdapter(data);
-        RecyclerView remindersRV = findViewById(R.id.remindersRV);
-        remindersRV.setAdapter(reminderServer);
-        remindersRV.setLayoutManager(new LinearLayoutManager(this));
+
     }
 }

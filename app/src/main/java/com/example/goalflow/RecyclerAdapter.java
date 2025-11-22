@@ -14,40 +14,43 @@ public class RecyclerAdapter extends
     RecyclerView.Adapter<RecyclerAdapter.ReminderViewHolder> {
 
 
+    private ArrayList<Goal> goals;
 
-
+    public RecyclerAdapter(ArrayList<Goal> goals) {
+        this.goals = goals;
+    }
 
     public static class ReminderViewHolder
             extends RecyclerView.ViewHolder {
-        public ReminderViewHolder(View v) {
-            super(v);
+        TextView goalName, goaltime;
+
+        public ReminderViewHolder(View itemView) {
+            super(itemView);
+            goalName = itemView.findViewById(R.id.reminderListTV);
+            goaltime = itemView.findViewById(R.id.reminderTV);
         }
     }
 
-    private ArrayList<String> reminders;
 
-    public RecyclerAdapter(ArrayList<String> reminders) {
-        super();
-        this.reminders = reminders;
-    }
-
-    public RecyclerAdapter.ReminderViewHolder
+    public ReminderViewHolder
     onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerreminder_view, parent, false);
-        ReminderViewHolder vh = new ReminderViewHolder(v);
-        return vh;
+        return new ReminderViewHolder(v);
     }
 
     public void onBindViewHolder(
             @NonNull ReminderViewHolder holder,
             int position) {
-        TextView reminderListTV = holder.itemView.findViewById(R.id.reminderListTV);
-        reminderListTV.setText(reminders.get(position));
+        Goal goal = goals.get(position);
+
+        holder.goalName.setText(goal.name);
+        holder.goaltime.setText("Notify Time: " + goal.notifyTime);
     }
 
     @Override
     public int getItemCount() {
-        return reminders.size();
+
+        return goals.size();
     }
 }
 
