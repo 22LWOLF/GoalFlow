@@ -49,9 +49,9 @@ public class TrackerActivity extends AppCompatActivity {
         backButton.setOnClickListener(v -> finish());
 
         Button addGoalButton = findViewById(R.id.addGoalBTN);
-        addGoalButton.setOnClickListener(v -> {
-            startActivity(new Intent(TrackerActivity.this, GoalCreationActivity.class));
-        });
+        addGoalButton.setOnClickListener(v ->
+                startActivity(new Intent(TrackerActivity.this, GoalCreationActivity.class))
+        );
 
         // Load saved goals
         loadGoals();
@@ -68,20 +68,19 @@ public class TrackerActivity extends AppCompatActivity {
         updateProgressBTN.setOnClickListener(v -> {
             if (currentGoal == null) return;
 
-            // increase progress by 20 up to 100
-            currentGoal.progress = Math.min(currentGoal.progress + 20, 100);
+            // ⭐ Increase progress by 1 (or whatever increment you want)
+            currentGoal.progress = Math.min(currentGoal.progress + 1, currentGoal.maxProgress);
             progressBar.setProgress(currentGoal.progress);
 
-            // increase streak by 1
-            currentGoal.streak = currentGoal.streak + 1;
-            streakTV.setText("🔥 " + currentGoal.streak + " " + currentGoal.unit + " Streak");
-
-
-            // when complete, disable button
-            if (currentGoal.progress >= 100) {
+            // ⭐ Streak increases only when reaching full completion
+            if (currentGoal.progress >= currentGoal.maxProgress) {
+                currentGoal.streak = currentGoal.streak + 1;
                 updateProgressBTN.setEnabled(false);
                 updateProgressBTN.setText("Goal Complete!");
             }
+
+            streakTV.setText("🔥 " + currentGoal.progress + " " + currentGoal.unit + " Streak");
+
 
             // persist all goals back to storage
             GoalStorage.saveGoals(this, goals);
@@ -94,9 +93,11 @@ public class TrackerActivity extends AppCompatActivity {
         if (goals == null || goals.isEmpty()) {
             // no saved goals
             goalNameTV.setText("No goals yet");
-            streakTV.setText("🔥 0"  + currentGoal.unit + " Streak");
 
-                    progressBar.setProgress(0);
+            // crash fix
+            streakTV.setText("🔥 0 Streak");
+
+            progressBar.setProgress(0);
             updateProgressBTN.setEnabled(false);
             nextGoalBTN.setEnabled(false);
             return;
@@ -110,19 +111,21 @@ public class TrackerActivity extends AppCompatActivity {
 
         // enable buttons
         updateProgressBTN.setEnabled(true);
-        nextGoalBTN.setEnabled(goals.size() > 1); // only enable if more than one goal
+        nextGoalBTN.setEnabled(goals.size() > 1);
     }
 
     private void displayCurrentGoal() {
         if (currentGoal == null) return;
 
         goalNameTV.setText(currentGoal.name != null ? currentGoal.name : "Untitled Goal");
-        streakTV.setText("🔥 " + currentGoal.streak + " " + currentGoal.unit + " Streak");
 
+        // ⭐ Use currentProgress instead of streak
+        streakTV.setText("🔥 " + currentGoal.progress + " " + currentGoal.unit + " Streak");
+
+        progressBar.setMax(currentGoal.maxProgress);        // ensure max is correct
         progressBar.setProgress(currentGoal.progress);
 
-        // update button state/text
-        if (currentGoal.progress >= 100) {
+        if (currentGoal.progress >= currentGoal.maxProgress) {
             updateProgressBTN.setEnabled(false);
             updateProgressBTN.setText("Goal Complete!");
         } else {
@@ -130,4 +133,6 @@ public class TrackerActivity extends AppCompatActivity {
             updateProgressBTN.setText("Update Progress");
         }
     }
+
 }
+

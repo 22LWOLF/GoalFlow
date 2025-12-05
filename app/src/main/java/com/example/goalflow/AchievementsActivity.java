@@ -35,45 +35,43 @@ public class AchievementsActivity extends AppCompatActivity {
     }
 
     private void loadAchievements() {
-        TextView achievementNameTV = findViewById(R.id.achievementNameTV);
-        TextView achievementDescTV = findViewById(R.id.achievementDescTV);
-
+        TextView achievementTV = findViewById(R.id.achievementNameTV); // reuse one TextView
         ArrayList<Goal> savedGoals = GoalStorage.loadGoals(this);
 
-        // Default message if no achievements
-        StringBuilder names = new StringBuilder();
-        StringBuilder descs = new StringBuilder();
+        StringBuilder achievements = new StringBuilder();
         boolean anyUnlocked = false;
 
         for (Goal g : savedGoals) {
-            if (g.streak >= 30) {
-                names.append("🥇 30-").append(g.unit).append(" Master!\n");
-                descs.append("Completed a full month of ").append(g.unit.toLowerCase()).append("!\n\n");
+            int progress = g.progress;
+
+            if (progress >= 30) {
+                achievements.append("🥇 30-").append(g.unit).append(" Master!\n")
+                        .append("Completed a full month of ").append(g.unit.toLowerCase()).append("!\n\n");
                 anyUnlocked = true;
             }
-            if (g.streak >= 14) {
-                names.append("🏅 Two-Week Streak!\n");
-                descs.append("Keep going! 14 ").append(g.unit.toLowerCase()).append("s in a row!\n\n");
+            if (progress >= 14) {
+                achievements.append("🏅 Two-Week Streak!\n")
+                        .append("Keep going! 14 ").append(g.unit.toLowerCase()).append(" in a row!\n\n");
                 anyUnlocked = true;
             }
-            if (g.streak >= 7) {
-                names.append("🏆 First 7-").append(g.unit).append(" Streak!\n");
-                descs.append("Completed your first full week of ").append(g.unit.toLowerCase()).append(" progress!\n\n");
+            if (progress >= 7) {
+                achievements.append("🏆 First 7-").append(g.unit).append(" Streak!\n")
+                        .append("Completed your first full week of ").append(g.unit.toLowerCase()).append("!\n\n");
                 anyUnlocked = true;
             }
-            if (g.streak >= 3) {
-                names.append("🎉 3-").append(g.unit).append(" Streak!\n");
-                descs.append("Great start! 3 ").append(g.unit.toLowerCase()).append("s in a row!\n\n");
+            if (progress >= 3) {
+                achievements.append("🎉 3-").append(g.unit).append(" Streak!\n")
+                        .append("Great start! 3 ").append(g.unit.toLowerCase()).append(" in a row!\n\n");
                 anyUnlocked = true;
             }
         }
 
         if (!anyUnlocked) {
-            names.append("🏆 No achievements yet!");
-            descs.append("Start tracking your goals to unlock achievements.");
+            achievements.append("🏆 No achievements yet!\nStart tracking your goals to unlock achievements.");
         }
 
-        achievementNameTV.setText(names.toString().trim());
-        achievementDescTV.setText(descs.toString().trim());
+        achievementTV.setText(achievements.toString().trim());
     }
 }
+
+

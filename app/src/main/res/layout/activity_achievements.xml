@@ -53,7 +53,7 @@
                 android:id="@+id/achievementDescTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Completed your first full week of progress!"
+                android:text=""
                 android:textSize="16sp"
                 android:paddingTop="4dp" />
         </LinearLayout>
