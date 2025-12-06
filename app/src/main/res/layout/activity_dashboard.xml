@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CDBBE9">
+    android:background="#CFC7DC">
 
     <ImageView
         android:id="@+id/welcomeImage"
@@ -72,71 +72,74 @@
         android:layout_height="wrap_content"
         android:text="Reminders"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.376" />
 
     <ImageButton
         android:id="@+id/achievementsBTN"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#673AB7"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/goalCreateBTN"
-        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_off" />
 
     <ImageButton
         android:id="@+id/goalCreateBTN"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:backgroundTint="#673AB7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/achievementsBTN"
-        app:layout_constraintEnd_toStartOf="@+id/trackerBTN"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#673AB7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/trackerBTN"
         app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/achievementsBTN"
         app:srcCompat="@android:drawable/ic_menu_agenda" />
 
     <ImageButton
         android:id="@+id/trackerBTN"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:backgroundTint="#673AB7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/goalCreateBTN"
-        app:layout_constraintEnd_toStartOf="@+id/settingsBTN"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#673AB7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/settingsBTN"
+        app:layout_constraintStart_toEndOf="@+id/goalCreateBTN"
         app:srcCompat="@android:drawable/checkbox_on_background" />
 
     <ImageButton
         android:id="@+id/settingsBTN"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#673AB7"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/trackerBTN"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toEndOf="@+id/trackerBTN"
         app:srcCompat="@android:drawable/ic_menu_preferences" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/remindersRV"
         android:layout_width="350dp"
-        android:layout_height="324dp"
+        android:layout_height="314dp"
+        android:background="#FFFFFF"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.759" />
+        app:layout_constraintVertical_bias="0.745" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
