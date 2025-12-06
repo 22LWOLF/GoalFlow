@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:text="Profile Settings"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:paddingBottom="8dp" />
 
         <!--profile section-->
@@ -22,7 +22,8 @@
             android:id="@+id/nameET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Change Name" />
+            android:hint="Change Name"
+            android:padding="14dp"/>
 
         <EditText
             android:id="@+id/emailET"
@@ -30,7 +31,8 @@
             android:layout_height="wrap_content"
             android:hint="Change Email"
             android:inputType="textEmailAddress"
-            android:layout_marginBottom="16dp" />
+            android:padding="14dp"
+            android:layout_marginBottom="20dp" />
 
         <!--Switches Section-->
         <TextView
@@ -38,21 +40,23 @@
             android:layout_height="wrap_content"
             android:text="Preferences"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:paddingBottom="8dp" />
 
         <Switch
             android:id="@+id/notificationSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enable Notifications" />
+            android:text="Enable Notifications"
+            android:padding="8dp"/>
 
         <Switch
             android:id="@+id/reminderSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Daily Reminders"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:padding="8dp"/>
 
         <!--Back Button-->
         <Button
