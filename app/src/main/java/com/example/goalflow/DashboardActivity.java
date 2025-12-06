@@ -59,16 +59,22 @@ public class DashboardActivity extends AppCompatActivity {
          String welcomeMSG;
 
          if(time < 12) {
-             welcomeMSG = "Good Morning!";
+             welcomeMSG = "Good Morning";
          }
          else if(time < 18) {
-             welcomeMSG = "Good Afternoon!";
+             welcomeMSG = "Good Afternoon";
          }
          else {
              welcomeMSG = "Good Evening";
          }
 
-         welcomeTV.setText(welcomeMSG);
+        String savedName = SettingsStorage.loadName(this);
+
+        if (savedName != null && !savedName.trim().isEmpty()) {
+            welcomeTV.setText(welcomeMSG + ", " + savedName + "!");
+        } else {
+            welcomeTV.setText(welcomeMSG + "!");
+        }
 
 //Changes the image every now and then
         welcomeImage = findViewById(R.id.welcomeImage);

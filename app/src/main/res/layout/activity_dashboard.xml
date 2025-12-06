@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/welcomeTV"
         android:layout_width="335dp"
-        android:layout_height="52dp"
+        android:layout_height="90dp"
         android:fontFamily="sans-serif-medium"
         android:outlineAmbientShadowColor="#3C2D2D"
         android:shadowColor="#000000"
