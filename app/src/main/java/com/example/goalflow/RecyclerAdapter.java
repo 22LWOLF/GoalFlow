@@ -44,7 +44,7 @@ public class RecyclerAdapter extends
         Goal goal = goals.get(position);
 
         holder.goalName.setText(goal.name);
-        holder.goaltime.setText("Notify Time: " + goal.notifyTime);
+        holder.goaltime.setText("Remind when: " + goal.notifyTime);
     }
 
     @Override

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="#CDBBE9">
 
     <ImageView
         android:id="@+id/welcomeImage"
@@ -19,6 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/sunset1" />
+
 
     <TextView
         android:id="@+id/welcomeTV"
@@ -36,11 +37,12 @@
         android:textColor="@color/white"
         android:textSize="30sp"
         android:typeface="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintBottom_toBottomOf="@+id/welcomeImage"
+        app:layout_constraintEnd_toEndOf="@+id/welcomeImage"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="@+id/welcomeImage"
+        app:layout_constraintTop_toTopOf="@+id/welcomeImage"
+        app:layout_constraintVertical_bias="0.821" />
 
     <TextClock
         android:id="@+id/timeView"
@@ -69,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reminders"
-        android:textColor="@color/black"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,67 +81,53 @@
         app:layout_constraintVertical_bias="0.396" />
 
     <ImageButton
-        android:id="@+id/trackerBTN"
+        android:id="@+id/achievementsBTN"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#673AB7"
-        android:contextClickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972"
-        app:srcCompat="@android:drawable/checkbox_on_background"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/settingsBTN"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:backgroundTint="#673AB7"
-        android:contextClickable="true"
-        android:outlineAmbientShadowColor="#BF4242"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972"
-        app:srcCompat="@android:drawable/ic_menu_preferences"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintEnd_toStartOf="@+id/goalCreateBTN"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@android:drawable/btn_star_big_off" />
 
     <ImageButton
         android:id="@+id/goalCreateBTN"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#673AB7"
-        android:contextClickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/trackerBTN"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/achievementsBTN"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972"
-        app:srcCompat="@android:drawable/ic_menu_agenda"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintEnd_toStartOf="@+id/trackerBTN"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:srcCompat="@android:drawable/ic_menu_agenda" />
 
     <ImageButton
-        android:id="@+id/achievementsBTN"
+        android:id="@+id/trackerBTN"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#673AB7"
-        android:contextClickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/goalCreateBTN"
+        app:layout_constraintEnd_toStartOf="@+id/settingsBTN"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@android:drawable/checkbox_on_background" />
+
+    <ImageButton
+        android:id="@+id/settingsBTN"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:backgroundTint="#673AB7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/trackerBTN"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972"
-        app:srcCompat="@android:drawable/btn_star_big_off"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@android:drawable/ic_menu_preferences" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/remindersRV"

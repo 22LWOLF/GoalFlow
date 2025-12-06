@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DashboardActivity extends AppCompatActivity {
     //this is stuff for the images
@@ -29,7 +30,7 @@ public class DashboardActivity extends AppCompatActivity {
     Handler handler = new Handler();
     Runnable runnable;
 
-
+    TextView welcomeTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,23 @@ public class DashboardActivity extends AppCompatActivity {
         ImageButton goalCreateBTN = findViewById(R.id.goalCreateBTN);
         ImageButton trackerBTN = findViewById(R.id.trackerBTN);
         ImageView welcomeImage;
-        TextView welcomeTV;
+
+        welcomeTV = findViewById(R.id.welcomeTV);
+
+         int time = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+         String welcomeMSG;
+
+         if(time < 12) {
+             welcomeMSG = "Good Morning!";
+         }
+         else if(time < 18) {
+             welcomeMSG = "Good Afternoon!";
+         }
+         else {
+             welcomeMSG = "Good Evening";
+         }
+
+         welcomeTV.setText(welcomeMSG);
 
 //Changes the image every now and then
         welcomeImage = findViewById(R.id.welcomeImage);
@@ -60,11 +77,11 @@ public class DashboardActivity extends AppCompatActivity {
             public void run() {
                 currentIndex = (currentIndex + 1) % images.length;
                 welcomeImage.setImageResource(images[currentIndex]);
-                handler.postDelayed(this, 8000);
+                handler.postDelayed(this, 20000);
 
             }
         };
-        handler.postDelayed(runnable, 8000);
+        handler.postDelayed(runnable, 20000);
 
         achievementsBTN.setOnClickListener(new View.OnClickListener() {
             @Override
